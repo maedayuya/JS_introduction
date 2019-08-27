@@ -52,6 +52,7 @@
     alert("warning!!!!")
   })
 
+
   //例２
   //leadというクラスの要素を配列で取得
   const leads = document.querySelectorAll('.lead')
@@ -62,13 +63,28 @@
   //全ての要素を出力
   leads.forEach(v => {console.log(v)})
 
-  //例3
+
+
+  //例3 node挿入
   const p = document.createElement('p')
   p.textContent = "text insert"
   
   //例2で取得したleadsを活用
   //leadsの5番目にpタグを挿入
   leads[4].append(p)
+
+  //例4 JSONの読み込みと変換
+  fetch('./example.json')
+    .then(e => {
+      return e.json()
+    })
+    .then(data => {
+      //JavaScriptのオブジェクト形式で出力
+      console.log(data)
+
+      //JSONの文字列で出力
+      console.log(JSON.stringify(data))
+    })
 
 </script>
 
