@@ -17,6 +17,7 @@
   fetch('https://script.google.com/macros/s/AKfycbyppesOlfQ1JOKBQflEe3cIhM5ERMqwCJpdeodBpWjBG6_my2U/exec')
   .then(res => { return res.json() })
   .then(data => {
+    //画面にdescriptionとforecastを表示できたらOK
     //dataの中にいろいろ格納されてる
     //まずはconsole.log()でdataの中身を確認してみる
     //後はこの中でDOM操作
