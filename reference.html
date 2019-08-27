@@ -36,6 +36,12 @@
   document.querySelector('#id')
   document.querySelector('.class')
 
+  //DOMを生成
+  const childNode = document.createElement('div')
+
+  //DOMの挿入
+  //element.append(childNode)
+
   //例1
   //idがalert__buttonの要素を取得
   const alertButton = document.querySelector('#alert__button')
@@ -55,4 +61,22 @@
 
   //全ての要素を出力
   leads.forEach(v => {console.log(v)})
+
+  //例3
+  const p = document.createElement('p')
+  p.textContent = "text insert"
+  
+  //例2で取得したleadsを活用
+  //leadsの5番目にpタグを挿入
+  leads[4].append(p)
+
 </script>
+
+<style>
+  .lead{
+    width: 400px;
+    height: 60px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+  }
+</style>

@@ -14,6 +14,13 @@
   //画像ファイルを入力して、画面にその画像が出たらOK
   //まずはファイルが入力されたことを検知する
   //画像読み込みにはFileReaderというのを使う
-
+  
+  document.getElementById('file-input').onchange = (e)=>{
+    const reader = new FileReader()
+    reader.onload = (e)=>{
+      document.getElementById('input-image').src = e.target.result
+    }
+    reader.readAsDataURL(e.target.files[0])
+  }
 </script>
 </html>

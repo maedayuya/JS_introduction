@@ -16,6 +16,16 @@
   //nameが空のとき、submitを押せないようにする
   //nameに何か入力されていたら、押せるようにする。
   //submitはすでにdisabledなので、入力したらdisabledを解除すればいい
+  const nameInput = document.querySelector('#form__name')
+  const submitButton = document.querySelector('#form__submit')
 
+  nameInput.addEventListener('keyup', ()=>{
+    if(nameInput.value == ''){
+      submitButton.disabled = true
+      return
+    }
+
+    submitButton.disabled = false
+  })
 </script>
 </html>

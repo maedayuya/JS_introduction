@@ -8,10 +8,14 @@
 </head>
 <body>
   <h1><span id='area-name'>大阪</span>の天気</h1>
+
+  <h2>情報</h2>
   <p id='description'></p>
-  <p class='forecast'></p>
-  <p class='forecast'></p>
-  <p class='forecast'></p>
+
+  <h2>予報</h2>
+  <div id="forecast">
+
+  </div>
 </body>
 <script defer>
   fetch('https://script.google.com/macros/s/AKfycbyppesOlfQ1JOKBQflEe3cIhM5ERMqwCJpdeodBpWjBG6_my2U/exec')
@@ -21,7 +25,23 @@
     //dataの中にいろいろ格納されてる
     //まずはconsole.log()でdataの中身を確認してみる
     //後はこの中でDOM操作
+    console.log(JSON.parse(data))
+    const json = JSON.parse(data)
+    document.getElementById('description').textContent = json['description']['text']
 
+    const forecastDisplay = document.getElementById('forecast')
+    const forecasts = json['forecasts']
+    forecasts.forEach(forecast => {
+      //文章生成
+      const paragraph = document.createElement('p')
+      paragraph.textContent = `${forecast['dateLabel']}: ${forecast['telop']}`
+      forecastDisplay.appendChild(paragraph)
+
+      //ついでに画像も
+      const image = document.createElement('img')
+      image.src = forecast['image']['url']
+      forecastDisplay.appendChild(image)
+    })
   })
 </script>
 <style>
