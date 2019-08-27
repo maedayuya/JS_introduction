@@ -1,5 +1,58 @@
-<button id="alert-button">display alert</button>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="alert__button">display alert</button>
+    <p class='lead'>taro</p>
+    <p class='lead'>jiro</p>
+    <p class='lead'>goro</p>
+    <p class='lead'>hanako</p>
+    <p class='lead'>yamako</p>
+    <p class='lead'>kawako</p>
+  </body>
+</html>
+
 <script>
-  const alertButton = document.querySelector('#alert-button')
- 	alertButton.addEventListener('click', ()=>{ alert('warning') })
+  /*
+    console出力
+    chromeのdeveloperツールを開くと、consoleというタブがある。
+    そこにconsole.log()の内容が出力される
+  */
+  console.log('test')
+
+  //idで要素を一つ取得
+  document.getElementById('id') // #はいらない
+
+  //classで要素を複数取得
+  document.getElementsByClassName('class') // .はいらない
+  document.querySelectorAll('.class') // .はいる
+
+  //idかclassで要素を一つ取得
+  document.querySelector('#id')
+  document.querySelector('.class')
+
+  //例1
+  //idがalert__buttonの要素を取得
+  const alertButton = document.querySelector('#alert__button')
+  
+  //alertButtonのclickイベントのとき、alertを出す
+  //element.addEventListener('イベント名', 無名関数でやること)
+  alertButton.addEventListener('click', ()=>{
+    alert("warning!!!!")
+  })
+
+  //例２
+  //leadというクラスの要素を配列で取得
+  const leads = document.querySelectorAll('.lead')
+
+  //３つ目のleadのテキストを変更
+  leads[2].textContent = "i'm from kanagawa."
+
+  //全ての要素を出力
+  leads.forEach(v => {console.log(v)})
 </script>
