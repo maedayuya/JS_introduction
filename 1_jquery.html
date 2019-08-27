@@ -12,6 +12,9 @@
   <script>
     // $('')でtargetを抜き出せたらok
     // 関数の名前を$にしてみれば
-
+    const $ = str => {
+      return document.querySelector(str)
+    }
+    console.log($('#target'))
   </script>
 </html>
